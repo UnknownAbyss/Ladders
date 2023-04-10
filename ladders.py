@@ -163,13 +163,15 @@ for i in range(n):
         v = data[i][var]
         if v["is_decl"]:
             break
-        vars[var] = maxn
+        if v["write"]:
+            vars[var] = maxn
 
     else:
         arr = sched.get(maxn, [])
         arr.append(i)
         sched[maxn] = arr
 
+print(vars)
 print(decs)
 print(sched)
 
